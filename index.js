@@ -1,10 +1,12 @@
 const express = require('express')
 const app = express()
+const operacoes = require('./src/operacoes')
+
 app.use(express.json())
 
 app.get('/soma/:n1/:n2', (req, res) => {
     return res.json({ 
-            result: parseFloat(req.params.n1) + parseFloat(req.params.n2)
+            result: operacoes.soma(req.params.n1, req.params.n2) 
         })
 })
 
